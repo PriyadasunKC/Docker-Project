@@ -1,575 +1,444 @@
 <!DOCTYPE html>
+<!-- Source Codes By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content=
-        "width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form in HTML and CSS | CodingNepal</title>
     <style>
+        /* Google Fonts Link */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        /* Resetting default styling and setting font-family */
         * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: white;
-    color: black;
-    font-family: "Fira Sans", sans-serif;
-    background-color: white;
-}
-
-nav {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 5%;
-    background-color: #8cc099;
-}
-
-nav .heading {
-    font-size: 30px;
-    font-weight: 700;
-    color: white;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    padding: 8px 15px;
-    border-radius: 10px;
-    transition: 0.2s ease-in;
-}
-
-nav ul li a {
-    color: black;
-    font-size: 20px;
-    font-weight: 500;
-    text-decoration: none;
-    color: white;
-}
-
-nav ul li:hover {
-    background-color: green;
-}
-
-nav ul li a:hover {
-    color: white;
-}
-
-nav .sideMenuButton {
-    font-size: 30px;
-    font-weight: bolder;
-    cursor: pointer;
-    display: none;
-}
-
-/* responsive navbar css */
-@media screen and (max-width: 600px) {
-    nav .sideMenuButton {
-        display: flex;
-    }
-
-    nav .navbar {
-        display: none;
-    }
-
-    .sideNavigationBar {
-        display: block !important;
-    }
-}
-
-.sideNavigationBar {
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: 0%;
-    background-color: green;
-    overflow-x: hidden;
-    transition: 0.3s ease-in;
-    padding-top: 60px;
-    display: none;
-}
-
-.sideNavigationBar a {
-    padding: 8px 8px 8px 40px;
-    display: block;
-    font-size: 25px;
-    font-weight: 500;
-    color: #d1d1d1;
-    transition: 0.3s;
-    text-decoration: none;
-}
-
-.sideNavigationBar a button {
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: green;
-    font-size: 16px;
-    border-style: none;
-    font-weight: 700;
-}
-
-.sideNavigationBar a:hover {
-    color: white;
-}
-
-.sideNavigationBar .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 20px;
-    margin-left: 50px;
-}
-
-.line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2% 5%;
-}
-
-.line .side1 {
-    padding-right: 50px;
-}
-
-.side1 h1 {
-    font-size: 60px;
-    margin-bottom: 10px;
-    color: green;
-}
-
-.side1 button {
-    width: 200px;
-    padding: 12px 20px;
-    border-radius: 20px;
-    border-style: none;
-    color: black;
-    font-size: 17px;
-    font-weight: 600;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-/* Header content responsive */
-@media screen and (max-width: 980px) {
-    .side2 img {
-        width: 350px;
-    }
-
-    .side1 h1 {
-        font-size: 40px;
-    }
-
-    .side1 p {
-        font-size: 17px;
-    }
-
-    .line {
-        margin-top: 80px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .side1 h1 {
-        font-size: 35px;
-    }
-
-    .line {
-        flex-direction: column;
-    }
-
-    .line .side1 {
-        padding: 30px;
-    }
-}
-
-/* section */
-
-section .topic a {
-    font-size: 25px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.about .boxes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.about .boxes .box {
-    margin: 10px 20px;
-    max-width: calc(100% / 3 - 50px);
-    text-align: center;
-    border-radius: 12px;
-    padding: 30px 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-    cursor: default;
-}
-
-/* Contact Page  */
-
-.contact {
-    padding: 20px;
-}
-
-.contact .content {
-    margin: 0 auto;
-    padding: 30px 0;
-}
-
-.content .title {
-    width: 80%;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 40px;
-}
-
-.title {
-    margin-bottom: 30px;
-    margin-left: 80px;
-}
-
-.contactMenu {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.input2 {
-    margin-top: 10;
-}
-
-.label1 {
-    font-size: 18px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    font-weight: bolder;
-}
-
-.contactMenu .input1 input {
-    border-radius: 13px;
-    padding: 6px;
-}
-
-.input2 input {
-    border-color: rgb(252, 244, 244);
-    width: 400px;
-}
-
-.button {
-    margin-top: 12px;
-    margin-left: 5px;
-}
-
-.button button {
-    width: 162px;
-    height: 35px;
-    border-radius: 12px;
-    border-color: transparent;
-}
-
-.button button:hover {
-    background-color: #8cc099;
-}
-
-button {
-    width: 162px;
-    height: 35px;
-    border-radius: 12px;
-    border-color: transparent;
-}
-
-button:hover {
-    background-color: #8cc099;
-}
-
-.rightside1 {
-    display: flex;
-    flex-direction: column;
-    margin-left: 300px;
-}
-
-.title1 {
-    font-size: 18px;
-    margin-top: 8px;
-    margin-bottom: 5px;
-    font-weight: bolder;
-}
-
-.content1 {
-    width: 450px;
-    margin-top: 2px;
-    color: grey;
-}
-
-/* Footer */
-footer {
-    background: var(--primary-color);
-    padding: 15px 0;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-}
-
-footer .footer span {
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--white-color);
-}
-
-footer .footer span a {
-    font-weight: 500;
-    color: var(--white-color);
-}
-
-footer .footer span a:hover {
-    text-decoration: underline;
-}
-
-@media screen and (max-width: 1060px) {
-    .contactMenu {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .rightside1 {
-        display: flex;
-        flex-direction: column;
-        margin-left: 0px;
-    }
-
-    .content1 {
-        width: 100%;
-        margin-top: 2px;
-        color: grey;
-    }
-
-    .side2 img {
-        width: 95%;
-        height: 90%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .side2 img {
-        width: 100%;
-    }
-
-    section .topic a {
-        font-size: 20px;
-    }
-
-    section .topic p {
-        font-size: 5px;
-    }
-
-    .about .boxes {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about .boxes .box {
-        max-width: 70%;
-    }
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            padding: 0 10px;
+            display: flex;
+            background: #626cd6;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Login form styling */
+        .login_form {
+            width: 100%;
+            max-width: 435px;
+            background: #fff;
+            border-radius: 6px;
+            padding: 41px 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .login_form h3 {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        /* Google & Apple button styling */
+
+        .login_form .login_option {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .login_form .login_option .option {
+            width: calc(100% / 2 - 12px);
+        }
+
+        .login_form .login_option .option a {
+            height: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            background: #F8F8FB;
+            border: 1px solid #DADAF2;
+            border-radius: 5px;
+            margin: 34px 0 24px 0;
+            text-decoration: none;
+            color: #171645;
+            font-weight: 500;
+            transition: 0.2s ease;
+        }
+
+        .login_form .login_option .option a:hover {
+            background: #ededf5;
+            border-color: #626cd6;
+        }
+
+        .login_form .login_option .option a img {
+            max-width: 25px;
+        }
+
+        .login_form p {
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .login_form .separator {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        /* Login option separator styling */
+        .login_form .separator span {
+            background: #fff;
+            z-index: 1;
+            padding: 0 10px;
+            position: relative;
+        }
+
+        .login_form .separator::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            height: 1px;
+            background: #C2C2C2;
+            display: block;
+        }
+
+        form .input_box label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        /* Input field styling */
+        form .input_box input {
+            width: 100%;
+            height: 57px;
+            border: 1px solid #DADAF2;
+            border-radius: 5px;
+            outline: none;
+            background: #F8F8FB;
+            font-size: 17px;
+            padding: 0px 20px;
+            margin-bottom: 25px;
+            transition: 0.2s ease;
+        }
+
+        form .input_box input:focus {
+            border-color: #626cd6;
+        }
+
+        form .input_box .password_title {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        form .input_box {
+            position: relative;
+        }
+
+        a {
+            text-decoration: none;
+            color: #626cd6;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Login button styling */
+        form button {
+            width: 100%;
+            height: 56px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background: #626CD6;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-bottom: 28px;
+            transition: 0.3s ease;
+        }
+
+        form button:hover {
+            background: #4954d0;
+        }
     </style>
-    <title>Landing Page</title>
 </head>
 
 <body>
-    <nav>
-        <div class="heading">Landing Page</div>
-        <span class="sideMenuButton" 
-            onclick="openNavbar()">
-            &#9776
-        </span>
+    <div class="login_form">
+        <!-- Login form container -->
+        <form action="#">
+            <h3>Log to movies service</h3>
 
-        <div class="navbar">
-            <ul>
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Sign Up</a></li>
-            </ul>
-        </div>
-    </nav>
+            <div class="login_option">
+                <!-- Google button -->
+                <div class="option">
+                    <a href="#">
+                        <?xml version="1.0" ?><svg id="Capa_1"
+                            style="width: 50px;height: 50px; enable-background:new 0 0 150 150;" version="1.1"
+                            viewBox="0 0 150 150" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <style type="text/css">
+                                .st0 {
+                                    fill: #1A73E8;
+                                }
 
-    <!-- Side navigation bar for 
-        responsive website -->
-    <div class="sideNavigationBar" 
-        id="sideNavigationBar">
-        <a href="#" class="closeButton" 
-            onclick="closeNavbar()">
-            &#x274C
-        </a>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Sign Up</a>
+                                .st1 {
+                                    fill: #EA4335;
+                                }
+
+                                .st2 {
+                                    fill: #4285F4;
+                                }
+
+                                .st3 {
+                                    fill: #FBBC04;
+                                }
+
+                                .st4 {
+                                    fill: #34A853;
+                                }
+
+                                .st5 {
+                                    fill: #4CAF50;
+                                }
+
+                                .st6 {
+                                    fill: #1E88E5;
+                                }
+
+                                .st7 {
+                                    fill: #E53935;
+                                }
+
+                                .st8 {
+                                    fill: #C62828;
+                                }
+
+                                .st9 {
+                                    fill: #FBC02D;
+                                }
+
+                                .st10 {
+                                    fill: #1565C0;
+                                }
+
+                                .st11 {
+                                    fill: #2E7D32;
+                                }
+
+                                .st12 {
+                                    fill: #F6B704;
+                                }
+
+                                .st13 {
+                                    fill: #E54335;
+                                }
+
+                                .st14 {
+                                    fill: #4280EF;
+                                }
+
+                                .st15 {
+                                    fill: #34A353;
+                                }
+
+                                .st16 {
+                                    clip-path: url(#SVGID_2_);
+                                }
+
+                                .st17 {
+                                    fill: #188038;
+                                }
+
+                                .st18 {
+                                    opacity: 0.2;
+                                    fill: #FFFFFF;
+                                    enable-background: new;
+                                }
+
+                                .st19 {
+                                    opacity: 0.3;
+                                    fill: #0D652D;
+                                    enable-background: new;
+                                }
+
+                                .st20 {
+                                    clip-path: url(#SVGID_4_);
+                                }
+
+                                .st21 {
+                                    opacity: 0.3;
+                                    fill: url(#_45_shadow_1_);
+                                    enable-background: new;
+                                }
+
+                                .st22 {
+                                    clip-path: url(#SVGID_6_);
+                                }
+
+                                .st23 {
+                                    fill: #FA7B17;
+                                }
+
+                                .st24 {
+                                    opacity: 0.3;
+                                    fill: #174EA6;
+                                    enable-background: new;
+                                }
+
+                                .st25 {
+                                    opacity: 0.3;
+                                    fill: #A50E0E;
+                                    enable-background: new;
+                                }
+
+                                .st26 {
+                                    opacity: 0.3;
+                                    fill: #E37400;
+                                    enable-background: new;
+                                }
+
+                                .st27 {
+                                    fill: url(#Finish_mask_1_);
+                                }
+
+                                .st28 {
+                                    fill: #FFFFFF;
+                                }
+
+                                .st29 {
+                                    fill: #0C9D58;
+                                }
+
+                                .st30 {
+                                    opacity: 0.2;
+                                    fill: #004D40;
+                                    enable-background: new;
+                                }
+
+                                .st31 {
+                                    opacity: 0.2;
+                                    fill: #3E2723;
+                                    enable-background: new;
+                                }
+
+                                .st32 {
+                                    fill: #FFC107;
+                                }
+
+                                .st33 {
+                                    opacity: 0.2;
+                                    fill: #1A237E;
+                                    enable-background: new;
+                                }
+
+                                .st34 {
+                                    opacity: 0.2;
+                                }
+
+                                .st35 {
+                                    fill: #1A237E;
+                                }
+
+                                .st36 {
+                                    fill: url(#SVGID_7_);
+                                }
+
+                                .st37 {
+                                    fill: #FBBC05;
+                                }
+
+                                .st38 {
+                                    clip-path: url(#SVGID_9_);
+                                    fill: #E53935;
+                                }
+
+                                .st39 {
+                                    clip-path: url(#SVGID_11_);
+                                    fill: #FBC02D;
+                                }
+
+                                .st40 {
+                                    clip-path: url(#SVGID_13_);
+                                    fill: #E53935;
+                                }
+
+                                .st41 {
+                                    clip-path: url(#SVGID_15_);
+                                    fill: #FBC02D;
+                                }
+                            </style>
+                            <g>
+                                <path class="st14"
+                                    d="M120,76.1c0-3.1-0.3-6.3-0.8-9.3H75.9v17.7h24.8c-1,5.7-4.3,10.7-9.2,13.9l14.8,11.5   C115,101.8,120,90,120,76.1L120,76.1z" />
+                                <path class="st15"
+                                    d="M75.9,120.9c12.4,0,22.8-4.1,30.4-11.1L91.5,98.4c-4.1,2.8-9.4,4.4-15.6,4.4c-12,0-22.1-8.1-25.8-18.9   L34.9,95.6C42.7,111.1,58.5,120.9,75.9,120.9z" />
+                                <path class="st12"
+                                    d="M50.1,83.8c-1.9-5.7-1.9-11.9,0-17.6L34.9,54.4c-6.5,13-6.5,28.3,0,41.2L50.1,83.8z" />
+                                <path class="st13"
+                                    d="M75.9,47.3c6.5-0.1,12.9,2.4,17.6,6.9L106.6,41C98.3,33.2,87.3,29,75.9,29.1c-17.4,0-33.2,9.8-41,25.3   l15.2,11.8C53.8,55.3,63.9,47.3,75.9,47.3z" />
+                            </g>
+                        </svg>
+                        <span>Google</span>
+                    </a>
+                </div>
+
+                <!-- Apple button -->
+                <div class="option">
+                    <a href="#">
+                        <?xml version="1.0" ?>
+                        <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg
+                            enable-background="new 0 0 50px" height="50px" id="Layer_1" version="1.1" viewBox="0 0 56.693 56.693"
+                            width="56.693px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path
+                                d="M28.347,5.155c-13.6,0-24.625,11.025-24.625,24.625c0,13.602,11.025,24.625,24.625,24.625  c13.6,0,24.625-11.023,24.625-24.625C52.972,16.18,41.946,5.155,28.347,5.155z M29.759,15.141c1.117-1.311,3.006-2.283,4.564-2.346  c0.199,1.816-0.533,3.637-1.613,4.947c-1.084,1.309-2.857,2.328-4.598,2.193C27.878,18.157,28.755,16.301,29.759,15.141z   M38.626,39.94c-1.293,1.889-2.633,3.771-4.744,3.809c-2.076,0.039-2.744-1.23-5.115-1.23c-2.373,0-3.115,1.193-5.08,1.27  c-2.037,0.076-3.589-2.037-4.892-3.92c-2.665-3.848-4.698-10.875-1.964-15.619c1.354-2.358,3.78-3.846,6.411-3.887  c2.004-0.037,3.893,1.35,5.115,1.35c1.225,0,3.521-1.666,5.936-1.42c1.01,0.041,3.846,0.406,5.668,3.071  c-0.146,0.092-3.387,1.977-3.348,5.902c0.043,4.689,4.113,6.246,4.16,6.27C40.735,35.642,40.12,37.757,38.626,39.94z" />
+                        </svg>
+                        <span>Apple</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Login option separator -->
+            <p class="separator">
+                <span>or</span>
+            </p>
+
+            <!-- Email input box -->
+            <div class="input_box">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter email address" required />
+            </div>
+
+            <!-- Paswwrod input box -->
+            <div class="input_box">
+                <div class="password_title">
+                    <label for="password">Password</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <input type="password" id="password" placeholder="Enter your password" required />
+            </div>
+
+            <!-- Login button -->
+            <button type="submit">Log In</button>
+
+            <p class="sign_up">Don't have an account? <a href="#">Sign up</a></p>
+        </form>
     </div>
-
-    <!-- Content -->
-    <div class="line" id="Home">
-        <div class="side1">
-            <h1>GeeksforGeeks</h1>
-            <button>
-                <a href=
-"https://www.geeksforgeeks.org/">
-                    Explore More
-                </a>
-            </button>
-        </div>
-        <div class="side2">
-            <img src=
-"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20220401124017/HTML-Tutorial.png"
-                width="500">
-        </div>
-    </div>
-
-    <section class="about" id="My Projects">
-        <div class="content">
-            <div class="title">
-                <span>Courses</span>
-            </div>
-            <div class="boxes">
-                <div class="box">
-                    <div class="topic">
-                        <a href="" target="_blank">
-                            DSA
-                        </a>
-                    </div>
-                    <p>
-                        The term DSA stands for Data 
-                        Structures and Algorithms. As 
-                        the name itself suggests, it 
-                        is a combination of two 
-                        separate yet interrelated 
-                        topics.
-                    </p>
-                </div>
-                <div class="box">
-
-                    <div class="topic">
-                        <a href="" target="_blank">
-                            HTML
-                        </a>
-                    </div>
-                    <p>
-                        HTML stands for HyperText 
-                        Markup Language. It is used 
-                        to design web pages using 
-                        the markup language.
-                    </p>
-                </div>
-
-                <div class="box">
-                    <div class="topic">
-                        <a href="" target="_blank">
-                            Javascript
-                        </a>
-                    </div>
-                    <p>
-                        JavaScript (JS) is the most 
-                        popular lightweight, interpreted 
-                        compiled programming language.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="content">
-            <div class="title"><span>Sign Up</span></div>
-            <div class="contactMenu">
-                <div class="input1">
-                    <div class="label1">Your Name</div>
-                    <div class="input2">
-                        <input type="text" 
-                            placeholder="Enter your Name here">
-                    </div>
-                    <div class="label1">
-                        <label>Your Email</label>
-                    </div>
-                    <div class="input2">
-                        <input type="text" 
-                            placeholder="Enter your Email here">
-                    </div>
-                    <div class="label1">
-                        <label>Your Password</label>
-                    </div>
-                    <div class="input2">
-                        <input type="text" 
-                            placeholder="Enter your Password here">
-                    </div>
-                    <div class="button">
-                        <button>Sign Up</button>
-                    </div>
-                </div>
-                <div class="input3">
-                    <div class="rightside1">
-                        <div class="title1">
-                            <span>
-                                Contact Us
-                            </span>
-                        </div>
-                        <div class="content1">
-                            A-143, 9th Floor, Sovereign 
-                            Corporate Tower, Sector-136, 
-                            Noida, Uttar Pradesh - 201305
-                        </div>
-                        <div class="title1">
-                            <span>More Information</span>
-                        </div>
-                        <div class="content1">
-                            Greetings to all the Geeks out there!
-                            We welcome you to the platform where we
-                            consistently strive to offer the best 
-                            of education. This platform has been 
-                            designed for every geek wishing to 
-                            expand their knowledge, share their 
-                            knowledge and is ready to grab their 
-                            dream job. We have millions of articles,
-                            live as well as online courses, thousands 
-                            of tutorials and much more just for the 
-                            geek inside you.Thank you for choosing 
-                            and supporting us!
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer section -->
-    <footer>
-        <div class="footer">
-            <span>
-                Created By
-                <a href="https://www.geeksforgeeks.org/" 
-                    target="_blank">
-                    GeeksforGeeks
-                </a>
-            </span>
-        </div>
-    </footer>
-    <script>
-        function openNavbar() {
-                document.getElementById("sideNavigationBar")
-                    .style.width = "50%";
-            }
-            function closeNavbar() {
-                document.getElementById("sideNavigationBar")
-                    .style.width = "0%";
-            }
-    </script>
-    
 </body>
 
 </html>
