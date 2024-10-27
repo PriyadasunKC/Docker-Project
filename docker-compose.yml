@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  movies:
+    image: chathurapriyadasun/movies:latest
+    ports:
+      - '81:80'
+    deploy:
+      replicas: 3
+  cartoons:
+    image: chathurapriyadasun/cartoons:latest
+    ports:
+      - '82:80'
+    deploy:
+      replicas: 3
+  bank:
+    image: chathurapriyadasun/bank:latest
+    ports:
+      - '83:80'
+    deploy:
+      replicas: 3
+  news:
+    image: chathurapriyadasun/news:latest
+    ports:
+      - '84:80'
+    deploy:
+      replicas: 3
